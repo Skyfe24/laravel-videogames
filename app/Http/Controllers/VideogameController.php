@@ -29,7 +29,16 @@ class VideogameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:70|unique:videogames',
+            'release_date' => 'required|date',
+            'genre' => 'required|string',
+            'cover' => 'nullable|url',
+            'description' => 'required|string',
+            'publisher' => 'required|string',
+            'serial_number' => 'required|string|unique:videogames',
+            'rating' => 'required|string',
+        ]);
     }
 
     /**
