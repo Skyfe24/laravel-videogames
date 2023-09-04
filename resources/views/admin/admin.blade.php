@@ -2,9 +2,12 @@
 
 @section('content')
     <div class="container">
-        <h2 class="fs-4 text-secondary my-4">
-            {{ __('Dashboard') }}
-        </h2>
+        <div class="d-flex justify-content-between align-items-center">
+            <h2 class="fs-4 text-secondary my-4">
+                {{ __('Dashboard') }}
+            </h2>
+            <a href="#" class="btn btn-success me-2">Create a new Videogame</a>
+        </div>
         <table class="table">
             <thead>
                 <tr>
@@ -17,6 +20,7 @@
                     <th scope="col">Publisher</th>
                     <th scope="col">Rating</th>
                     <th scope="col">Serial Number</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -31,6 +35,15 @@
                         <td>{{ $videogame->publisher }}</td>
                         <td>{{ $videogame->serial_number }}</td>
                         <td>{{ $videogame->rating }}</td>
+                        <td>
+                            <div class="d-flex">
+                                <a href="#" class="btn btn-primary me-2">Show</a>
+                                <a href="#" class="btn btn-warning me-2">Edit</a>
+                                <form action="#" method="POST">
+                                    <button class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
