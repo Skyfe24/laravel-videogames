@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Videogame;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class VideogameController extends Controller
 {
@@ -95,11 +96,42 @@ class VideogameController extends Controller
      */
     public function update(Request $request, Videogame $videogame)
     {
+
+        $request->validate([
+            'title' => ['required', 'max:70', 'string', Rule::unique('videogames')->ignore($videogame)],
+            'release_date' => 'required|date',
+            'genre' => 'required|string',
+            'cover' => 'nullable|url',
+            'description' => 'required|string',
+            'publisher' => 'required|string',
+            'serial_number' => ['required', 'string', Rule::unique('videogames')->ignore($videogame)],
+            'rating' => 'required|string'
+        ], [
+            'title.required' => 'Attenzione! Il titolo è obblicatorio',
+            'title.max' => 'Attenzione! Il titolo deve essere lungo massimo :max caratteri',
+            'title.unique' => 'Attenzione! Questo titolo esiste già',
+
+            'release_date.required' => 'Attenzione! La data è obbligatoria',
+
+            'genre.required' => 'Attenzione! Il genere è obbligatorio',
+
+            'cover.url' => "L'url inserito non è valido",
+
+            'description.required' => 'Attenzione! La descrizione è obbligatoria',
+
+            'publisher.required' => "Attenzione! L'editore è obbligatorio",
+
+            'serial_number.required' => 'Attenzione! Il numero seriale è obbligatorio',
+            'serial_number.unique' => 'Attenzione! Questo numero seriale esiste già',
+
+            'rating.required' => 'Attenzione! Il voto è obbligatorio',
+        ]);
+
         $data = $request->all();
 
         $videogame->update($data);
 
-        return redirect()->route('admin.videogames.show', $videogame->id);
+        return to_route('admin.videogames.show', $videogame->id);
     }
 
     /**
