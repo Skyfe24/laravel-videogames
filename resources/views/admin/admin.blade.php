@@ -6,7 +6,7 @@
             <h2 class="fs-4 text-secondary my-4">
                 {{ __('Dashboard') }}
             </h2>
-            <a href="#" class="btn btn-success me-2">Create a new Videogame</a>
+            <a href="{{ route('videogames.create') }}" class="btn btn-success me-2">Create a new Videogame</a>
         </div>
         <table class="table">
             <thead>
