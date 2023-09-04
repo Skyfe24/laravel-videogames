@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@include('includes.alert')
 
 @section('content')
     <div class="container">
@@ -40,11 +41,7 @@
                                 <a href="{{ route('admin.videogames.show', $videogame->id) }}"
                                     class="btn btn-primary me-2">Show</a>
                                 <a href="#" class="btn btn-warning me-2">Edit</a>
-                                <form action="{{ route('admin.videogames.destroy', $videogame->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger">Delete</button>
-                                </form>
+                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="{{ $videogame->id }}">Delete</button>
                             </div>
                         </td>
                     </tr>
