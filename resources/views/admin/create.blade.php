@@ -13,11 +13,20 @@
                 </div>
                 <div class="mb-3 col-4">
                     <label for="genre" class="form-label">Select Genre</label>
-                    <input type="text" class="form-control" name="genre" id="genre">
+                    <select class="form-control" name="genre" id="genre">
+                        <option>Action</option>
+                        <option>Rpg</option>
+                        <option>Sport</option>
+                        <option>FPS</option>
+                        <option>Adventure</option>
+                        <option>MMO</option>
+                        <option>Strategy</option>
+                        <option>Racing</option>
+                    </select>
                 </div>
                 <div class="mb-3 col-8">
                     <label for="cover" class="form-label">Insert cover URL</label>
-                    <input type="text" class="form-control" name="cover" id="cover">
+                    <input type="text" class="form-control" name="cover" id="cover" placeholder="es. http://www">
                 </div>
 
                 <div class="mb-3">
@@ -32,7 +41,13 @@
 
                 <div class="mb-3 col-4">
                     <label for="rating" class="form-label">Vote the game</label>
-                    <input type="text" class="form-control" name="rating" id="rating">
+                    <select class="form-control" name="rating" id="rating">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
                 </div>
 
                 <div class="mb-3 col-4">
