@@ -19,8 +19,10 @@ Route::get('/', function () {
     return view('guest.guest');
 });
 
-Route::get('/admin', [VideogameController::class, 'index'])->middleware(['auth', 'verified'])->name('admin');
+
 Route::prefix('/admin')->middleware(['auth'])->name('admin.')->group(function () {
+
+    Route::get('/', [VideogameController::class, 'index'])->name('admin');
     Route::resource('videogames', VideogameController::class);
 });
 
