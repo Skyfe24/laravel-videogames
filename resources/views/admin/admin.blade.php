@@ -40,7 +40,7 @@
                                 <a href="{{ route('admin.videogames.show', $videogame->id) }}"
                                     class="btn btn-primary me-2">Show</a>
                                 <a href="#" class="btn btn-warning me-2">Edit</a>
-                                <form action="{{ route('videogames.destroy', $videogame->id) }}" method="POST">
+                                <form action="{{ route('admin.videogames.destroy', $videogame->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger">Delete</button>

@@ -102,7 +102,7 @@ class VideogameController extends Controller
     public function destroy(Videogame $videogame)
     {
         $videogame->delete();
-        return to_route('videogames.index')->with('status', 'Videogame Soft Deleted');
+        return to_route('admin.videogames.index')->with('status', 'Videogame Soft Deleted');
     }
 
     // restore function 
