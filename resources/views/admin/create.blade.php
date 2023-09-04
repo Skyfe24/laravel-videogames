@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container mt-5">
-        <form action="{{ route('videogames.store') }}" method="POST">
+        <form action="{{ route('admin.videogames.store') }}" method="POST">
             @csrf
             <div class="row">
                 <div class="mb-3 col-9">

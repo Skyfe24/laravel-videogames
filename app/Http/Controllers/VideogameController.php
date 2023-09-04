@@ -33,7 +33,7 @@ class VideogameController extends Controller
         $new_game = new Videogame();
         $new_game->fill($data);
         $new_game->save();
-        return to_route('videogames.index');
+        return to_route('admin.videogames.index');
     }
 
     /**
