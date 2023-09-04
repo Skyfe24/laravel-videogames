@@ -30,8 +30,8 @@
                         <td>{{ $videogame->title }}</td>
                         <td>{{ $videogame->release_date }}</td>
                         <td>{{ $videogame->genre }}</td>
-                        <td>{{ substr($videogame->cover, 0 , 30) . '...' }}</td>
-                        <td>{{ substr($videogame->description, 0 , 30) . '...' }}</td>
+                        <td>{{ substr($videogame->cover, 0, 30) . '...' }}</td>
+                        <td>{{ substr($videogame->description, 0, 30) . '...' }}</td>
                         <td>{{ $videogame->publisher }}</td>
                         <td>{{ $videogame->serial_number }}</td>
                         <td>{{ $videogame->rating }}</td>
@@ -39,7 +39,8 @@
                             <div class="d-flex">
                                 <a href="{{ route('admin.videogames.show', $videogame->id) }}"
                                     class="btn btn-primary me-2">Show</a>
-                                <a href="#" class="btn btn-warning me-2">Edit</a>
+                                <a href="{{ route('admin.videogames.edit', $videogame->id) }}"
+                                    class="btn btn-warning me-2">Edit</a>
                                 <form action="{{ route('admin.videogames.destroy', $videogame->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
