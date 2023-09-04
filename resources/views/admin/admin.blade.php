@@ -37,7 +37,8 @@
                         <td>{{ $videogame->rating }}</td>
                         <td>
                             <div class="d-flex">
-                                <a href="#" class="btn btn-primary me-2">Show</a>
+                                <a href="{{ route('videogames.show', $videogame->id) }}"
+                                    class="btn btn-primary me-2">Show</a>
                                 <a href="#" class="btn btn-warning me-2">Edit</a>
                                 <form action="#" method="POST">
                                     <button class="btn btn-danger">Delete</button>
