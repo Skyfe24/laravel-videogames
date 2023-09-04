@@ -21,7 +21,7 @@ class VideogameController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.create');
     }
 
     /**
@@ -29,6 +29,7 @@ class VideogameController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate(
             [
                 'title' => 'required|string|max:70|unique:videogames',
@@ -63,6 +64,13 @@ class VideogameController extends Controller
             ]
 
         );
+
+        $data = $request->all();
+        $new_game = new Videogame();
+        $new_game->fill($data);
+        $new_game->save();
+        return to_route('videogames.index');
+
     }
 
     /**
@@ -70,7 +78,7 @@ class VideogameController extends Controller
      */
     public function show(Videogame $videogame)
     {
-        //
+        return view('admin.show', compact('videogame'));
     }
 
     /**
