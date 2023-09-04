@@ -30,8 +30,8 @@
                         <td>{{ $videogame->title }}</td>
                         <td>{{ $videogame->release_date }}</td>
                         <td>{{ $videogame->genre }}</td>
-                        <td>{{ $videogame->cover }}</td>
-                        <td>{{ $videogame->description }}</td>
+                        <td>{{ substr($videogame->cover, 0 , 30) . '...' }}</td>
+                        <td>{{ substr($videogame->description, 0 , 30) . '...' }}</td>
                         <td>{{ $videogame->publisher }}</td>
                         <td>{{ $videogame->serial_number }}</td>
                         <td>{{ $videogame->rating }}</td>
