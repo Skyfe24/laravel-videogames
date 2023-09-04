@@ -20,8 +20,10 @@ Route::get('/', function () {
 });
 
 Route::get('/admin', [VideogameController::class, 'index'])->middleware(['auth', 'verified'])->name('admin');
+Route::prefix('/admin')->middleware(['auth'])->name('admin.')->group(function () {
+    Route::resource('videogames', VideogameController::class);
+});
 
-Route::resource('videogames', VideogameController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

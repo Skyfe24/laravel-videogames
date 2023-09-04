@@ -6,7 +6,7 @@
             <h2 class="fs-4 text-secondary my-4">
                 {{ __('Dashboard') }}
             </h2>
-            <a href="{{ route('videogames.create') }}" class="btn btn-success me-2">Create a new Videogame</a>
+            <a href="{{ route('admin.videogames.create') }}" class="btn btn-success me-2">Create a new Videogame</a>
         </div>
         <table class="table">
             <thead>
@@ -37,10 +37,10 @@
                         <td>{{ $videogame->rating }}</td>
                         <td>
                             <div class="d-flex">
-                                <a href="{{ route('videogames.show', $videogame->id) }}"
+                                <a href="{{ route('admin.videogames.show', $videogame->id) }}"
                                     class="btn btn-primary me-2">Show</a>
                                 <a href="#" class="btn btn-warning me-2">Edit</a>
-                                <form action="{{ route('videogames.destroy', $videogame->id) }}" method="POST">
+                                <form action="{{ route('admin.videogames.destroy', $videogame->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger">Delete</button>

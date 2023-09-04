@@ -44,6 +44,6 @@
                 </div>
             </div>
         </div>
-        <a href="{{ route('videogames.index') }}" class="btn btn-secondary mt-4">Back</a>
+        <a href="{{ route('admin.videogames.index') }}" class="btn btn-secondary mt-4">Back</a>
     </div>
 @endsection

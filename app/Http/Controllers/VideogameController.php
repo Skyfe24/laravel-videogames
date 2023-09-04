@@ -69,8 +69,7 @@ class VideogameController extends Controller
         $new_game = new Videogame();
         $new_game->fill($data);
         $new_game->save();
-        return to_route('videogames.index');
-
+        return to_route('admin.videogames.index');
     }
 
     /**
@@ -103,7 +102,7 @@ class VideogameController extends Controller
     public function destroy(Videogame $videogame)
     {
         $videogame->delete();
-        return to_route('videogames.index')->with('status', 'Videogame Soft Deleted');
+        return to_route('admin.videogames.index')->with('status', 'Videogame Soft Deleted');
     }
 
     // restore function 
