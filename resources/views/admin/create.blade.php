@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <div class="container mt-5">
-        <form>
+        <form action="{{ route('videogames.store') }}" method="POST">
+            @csrf
             <div class="row">
                 <div class="mb-3 col-9">
                     <label for="title" class="form-label">Insert title</label>
