@@ -30,7 +30,11 @@
 
                         <li class="list-group-item">
                             <h5>Publisher</h5>
-                            {{ $videogame->publisher->name }}
+                            @if ($videogame->publisher)
+                                {{ $videogame->publisher->name }}
+                            @else
+                                -
+                            @endif
                         </li>
                         <li class="list-group-item">
                             <h5>Avarage Vote</h5>
