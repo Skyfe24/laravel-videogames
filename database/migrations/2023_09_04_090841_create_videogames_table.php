@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('title')->unique();
             $table->date('release_date')->nullable();
-            $table->string('genre');
             $table->string('cover', 500)->unique()->nullable();
             $table->text('description')->nullable();
             $table->string('publisher');
