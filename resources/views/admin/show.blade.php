@@ -25,7 +25,7 @@
                         </li>
                         <li class="list-group-item">
                             <h5>Genre</h5>
-                            {{ $videogame->genre }}
+                            {{ $videogame->genres->first() ? $videogame->genres->first()->name : 'N/A' }}
                         </li>
 
                         <li class="list-group-item">
