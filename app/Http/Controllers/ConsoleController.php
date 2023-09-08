@@ -71,6 +71,7 @@ class ConsoleController extends Controller
      */
     public function destroy(Console $console)
     {
-        //
+        $console->delete();
+        return to_route('admin.consoles.index');
     }
 }

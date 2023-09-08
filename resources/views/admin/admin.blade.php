@@ -50,7 +50,7 @@
                                 <a href="{{ route('admin.videogames.edit', $videogame->id) }}"
                                     class="btn btn-warning me-2">Edit</a>
                                 <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
-                                    data-id="{{ $videogame->id }}">Delete</button>
+                                    data-route="projects" data-id="{{ $videogame->id }}">Delete</button>
                             </div>
                         </td>
                     </tr>

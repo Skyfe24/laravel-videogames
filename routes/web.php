@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VideogameController;
+use App\Http\Controllers\ConsoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,7 @@ Route::prefix('/admin')->middleware(['auth'])->name('admin.')->group(function ()
 
     Route::get('/', [VideogameController::class, 'index'])->name('admin');
     Route::resource('videogames', VideogameController::class);
+    Route::resource('consoles', ConsoleController::class);
 });
 
 

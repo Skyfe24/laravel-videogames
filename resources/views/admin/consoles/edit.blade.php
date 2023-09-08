@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="container">
-        @include('includes.form')
+        @include('includes.form_console')
     </div>
 @endsection
