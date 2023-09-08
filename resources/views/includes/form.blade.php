@@ -99,10 +99,11 @@
 
         <select
             class="form-select @error('publisher') is-invalid @elseif(old('publisher')) is-valid @enderror "
-            name="publisher" id="publisher" value="{{ old('publisher', $videogame->publisher) }}">
+            name="publisher_id" id="publisher" value="{{ old('publisher', $videogame->publisher) }}">
             <option selected value="">Nessuno</option>
             @foreach ($publishers as $publisher)
-                <option value="2">{{ $publisher->name }}</option>
+                <option @if (old('publisher_id', $videogame->publisher_id) == $publisher->id) selected @endif value="{{ $publisher->id }}">
+                    {{ $publisher->name }}</option>
             @endforeach
         </select>
 

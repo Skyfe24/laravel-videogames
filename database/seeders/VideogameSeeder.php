@@ -24,7 +24,6 @@ class VideogameSeeder extends Seeder
             $new_videogame->description = $faker->paragraph();
             $new_videogame->serial_number = $faker->isbn13();
             $new_videogame->rating = $faker->numberBetween(1, 5);
-            $new_videogame->publisher = $faker->company();
             $new_videogame->save();
         }
     }

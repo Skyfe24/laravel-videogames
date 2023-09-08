@@ -33,7 +33,13 @@
                         <td>{{ $videogame->genre }}</td>
                         <td>{{ substr($videogame->cover, 0, 30) . '...' }}</td>
                         <td>{{ substr($videogame->description, 0, 30) . '...' }}</td>
-                        <td>{{ $videogame->publisher }}</td>
+
+                        @if ($videogame->publisher)
+                            <td>{{ $videogame->publisher->name }}</td>
+                        @else
+                            <td>-</td>
+                        @endif
+
                         <td>{{ $videogame->serial_number }}</td>
                         <td>{{ $videogame->rating }}</td>
                         <td>

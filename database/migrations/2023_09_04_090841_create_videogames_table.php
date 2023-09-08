@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('genre');
             $table->string('cover', 500)->unique()->nullable();
             $table->text('description')->nullable();
-            $table->string('publisher');
             $table->string('serial_number')->unique();
             $table->string('rating')->nullable();
             $table->timestamps();
