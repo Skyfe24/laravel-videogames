@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Publisher;
 use App\Models\Videogame;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use App\Models\Genre;
-
 class VideogameController extends Controller
 {
     /**
@@ -15,6 +14,7 @@ class VideogameController extends Controller
      */
     public function index()
     {
+        $genres = Genre::all();
         $videogames = Videogame::all();
         $publishers = Publisher::select('id', 'name', 'country')->get();
         return view('admin.admin', compact('videogames', 'publishers'));
@@ -25,9 +25,9 @@ class VideogameController extends Controller
      */
     public function create()
     {
-        $videogame = new Videogame();
-
         $genres = Genre::all();
+
+        $videogame = new Videogame();
 
         $publishers = Publisher::select('id', 'name', 'country')->get();
 
@@ -44,7 +44,7 @@ class VideogameController extends Controller
             [
                 'title' => 'required|string|max:70|unique:videogames',
                 'release_date' => 'required|date',
-                'genre' => 'required|string',
+                'genre' => 'required|exists:genres,id',
                 'cover' => 'nullable|url',
                 'description' => 'required|string',
                 'serial_number' => 'required|string|unique:videogames',
@@ -96,8 +96,9 @@ class VideogameController extends Controller
      */
     public function edit(Videogame $videogame)
     {
+        $genres = Genre::all();
         $publishers = Publisher::select('id', 'name', 'country')->get();
-        return view('admin.edit', compact('videogame', 'publishers'));
+        return view('admin.edit', compact('videogame', 'publishers', 'genres'));
     }
 
     /**
@@ -109,7 +110,7 @@ class VideogameController extends Controller
         $request->validate([
             'title' => ['required', 'max:70', 'string', Rule::unique('videogames')->ignore($videogame)],
             'release_date' => 'required|date',
-            'genre' => 'required|string',
+            'genre' => 'required|exists:genres,id',
             'cover' => 'nullable|url',
             'description' => 'required|string',
 
