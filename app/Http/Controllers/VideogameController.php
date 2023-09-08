@@ -85,8 +85,10 @@ class VideogameController extends Controller
      * Display the specified resource.
      */
     public function show(Videogame $videogame)
+
     {
-        return view('admin.show', compact('videogame'));
+        $publishers = Publisher::select('id', 'name', 'country')->get();
+        return view('admin.show', compact('videogame', 'publisher'));
     }
 
     /**
