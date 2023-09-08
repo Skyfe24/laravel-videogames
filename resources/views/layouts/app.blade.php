@@ -47,9 +47,29 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
-                        </li>
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
+                            </li>
+                        @endguest
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/admin') }}">{{ __('Home') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/admin/publishers') }}">{{ __('Publishers') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/admin/consoles') }}">{{ __('Consoles') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/admin/developers') }}">{{ __('Developers') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/admin/genres') }}">{{ __('Genres') }}</a>
+                            </li>
+
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
