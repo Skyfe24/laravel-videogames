@@ -94,14 +94,26 @@
             col-4">
         <label for="publisher" class="form-label">Insert
             publisher</label>
-        <input type="text"
+
+        <select
+            class="form-select @error('publisher') is-invalid @elseif(old('publisher')) is-valid @enderror "
+            name="publisher_id" id="publisher" value="{{ old('publisher', $videogame->publisher) }}">
+            <option selected value="">Nessuno</option>
+            @foreach ($publishers as $publisher)
+                <option @if (old('publisher_id', $videogame->publisher_id) == $publisher->id) selected @endif value="{{ $publisher->id }}">
+                    {{ $publisher->name }}</option>
+            @endforeach
+        </select>
+
+
+        {{-- <input type="text"
             class="form-control @error('publisher') is-invalid @elseif(old('publisher')) is-valid @enderror "
             name="publisher" id="publisher" value="{{ old('publisher', $videogame->publisher) }}">
         @error('publisher')
             <div class="invalid-feedback">
                 Please provide a valid publisher.
             </div>
-        @enderror
+        @enderror --}}
     </div>
 
 </div>
