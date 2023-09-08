@@ -12,4 +12,9 @@ class Videogame extends Model
     use SoftDeletes;
     protected $fillable = ['title', 'release_date', 'genre', 'cover', 'description', 'publisher', 'serial_number', 'rating'];
     protected $dates = ['deleted_at'];
+
+    public function consoles()
+    {
+        return $this->belongsToMany(Console::class);
+    }
 }
