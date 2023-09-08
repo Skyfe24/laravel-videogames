@@ -15,7 +15,8 @@ class VideogameController extends Controller
     public function index()
     {
         $videogames = Videogame::all();
-        return view('admin.admin', compact('videogames'));
+        $publishers = Publisher::select('id', 'name', 'country')->get();
+        return view('admin.admin', compact('videogames', 'publishers'));
     }
 
     /**
@@ -24,9 +25,9 @@ class VideogameController extends Controller
     public function create()
     {
         $videogame = new Videogame();
-        $publisher = Publisher::select('id', 'name', 'country')->get();
+        $publishers = Publisher::select('id', 'name', 'country')->get();
 
-        return view('admin.create', compact('videogame', 'publisher'));
+        return view('admin.create', compact('videogame', 'publishers'));
     }
 
     /**
@@ -42,7 +43,6 @@ class VideogameController extends Controller
                 'genre' => 'required|string',
                 'cover' => 'nullable|url',
                 'description' => 'required|string',
-                'publisher' => 'required|string',
                 'serial_number' => 'required|string|unique:videogames',
                 'rating' => 'required|string'
             ],
@@ -59,7 +59,7 @@ class VideogameController extends Controller
 
                 'description.required' => 'Attenzione! La descrizione è obbligatoria',
 
-                'publisher.required' => "Attenzione! L'editore è obbligatorio",
+
 
                 'serial_number.required' => 'Attenzione! Il numero seriale è obbligatorio',
                 'serial_number.unique' => 'Attenzione! Questo numero seriale esiste già',
@@ -106,7 +106,7 @@ class VideogameController extends Controller
             'genre' => 'required|string',
             'cover' => 'nullable|url',
             'description' => 'required|string',
-            'publisher' => 'required|string',
+
             'serial_number' => ['required', 'string', Rule::unique('videogames')->ignore($videogame)],
             'rating' => 'required|string'
         ], [
@@ -121,8 +121,6 @@ class VideogameController extends Controller
             'cover.url' => "L'url inserito non è valido",
 
             'description.required' => 'Attenzione! La descrizione è obbligatoria',
-
-            'publisher.required' => "Attenzione! L'editore è obbligatorio",
 
             'serial_number.required' => 'Attenzione! Il numero seriale è obbligatorio',
             'serial_number.unique' => 'Attenzione! Questo numero seriale esiste già',
