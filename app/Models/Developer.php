@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Developer extends Model
 {
     use HasFactory;
+
+    public function developers()
+    {
+        return $this->hasMany(Developer::class);
+    }
 }
