@@ -16,9 +16,9 @@ class DeveloperSeeder extends Seeder
     {
         for ($i = 0; $i < 10; $i++) {
             $new_developer = new Developer();
-            $new_developer->name = $faker->words(1, true);
-            $new_developer->surname = $faker->words(1, true);
-            $new_developer->nationality = $faker->words(1, true);
+            $new_developer->name = $faker->word();
+            $new_developer->surname = $faker->word();
+            $new_developer->nationality = $faker->word();
             $new_developer->save();
         }
     }
