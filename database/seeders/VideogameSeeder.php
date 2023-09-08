@@ -16,6 +16,7 @@ class VideogameSeeder extends Seeder
      */
     public function run(Generator $faker): void
     {
+        $genres = Genre::all();
         $videogames_list = config('videogames_list');
         for ($i = 0; $i < count($videogames_list); $i++) {
 
