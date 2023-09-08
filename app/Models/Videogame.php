@@ -26,4 +26,9 @@ class Videogame extends Model
     {
         return $this->belongsToMany(Genre::class);
     }
+
+    public function developers()
+    {
+        return $this->belongsToMany(Developer::class);
+    }
 }
