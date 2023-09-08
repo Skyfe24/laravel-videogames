@@ -17,7 +17,7 @@ class VideogameSeeder extends Seeder
         for ($i = 0; $i < 31; $i++) {
 
             $new_videogame = new Videogame();
-            $new_videogame->title = $faker->word();
+            $new_videogame->title = $faker->words(3, true);
             $new_videogame->release_date = $faker->dateTime();
             $new_videogame->genre = $faker->word();
             $new_videogame->cover = $faker->imageUrl(640, 480, 'animals', true);
