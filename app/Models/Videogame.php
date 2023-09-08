@@ -22,4 +22,8 @@ class Videogame extends Model
     {
         return $this->belongsTo(Publisher::class);
     }
+    public function genres()
+    {
+        return $this->belongsToMany(Genre::class);
+    }
 }

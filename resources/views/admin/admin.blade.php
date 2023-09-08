@@ -30,7 +30,7 @@
                         <th>{{ $videogame->id }}</th>
                         <td>{{ $videogame->title }}</td>
                         <td>{{ $videogame->release_date }}</td>
-                        <td>{{ $videogame->genre }}</td>
+                        <td>{{ $videogame->genres->first() ? $videogame->genres->first()->name : 'N/A' }}</td>
                         <td>{{ substr($videogame->cover, 0, 30) . '...' }}</td>
                         <td>{{ substr($videogame->description, 0, 30) . '...' }}</td>
                         <td>{{ $videogame->publisher }}</td>

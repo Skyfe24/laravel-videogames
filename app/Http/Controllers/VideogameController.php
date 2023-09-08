@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Videogame;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Models\Genre;
 
 class VideogameController extends Controller
 {
@@ -23,8 +24,10 @@ class VideogameController extends Controller
     public function create()
     {
         $videogame = new Videogame();
+        $genres = Genre::all();
 
-        return view('admin.create', compact('videogame'));
+
+        return view('admin.create', compact('videogame', 'genres'));
     }
 
     /**

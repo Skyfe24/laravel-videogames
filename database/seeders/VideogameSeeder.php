@@ -2,10 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Genre;
 use App\Models\Videogame;
 use Faker\Generator;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Arr;
 
 class VideogameSeeder extends Seeder
 {
@@ -25,6 +27,7 @@ class VideogameSeeder extends Seeder
             $new_videogame->serial_number = $faker->isbn13();
             $new_videogame->rating = $faker->numberBetween(1, 5);
             $new_videogame->save();
+            $new_videogame->genres()->attach(Arr::random($genres->pluck('id')->toArray()));
         }
     }
 }
