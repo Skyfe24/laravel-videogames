@@ -30,7 +30,7 @@
 
                         <li class="list-group-item">
                             <h5>Publisher</h5>
-                            {{ $videogame->publisher }}
+                            {{ $videogame->publisher->name }}
                         </li>
                         <li class="list-group-item">
                             <h5>Avarage Vote</h5>

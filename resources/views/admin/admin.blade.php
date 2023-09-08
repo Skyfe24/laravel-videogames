@@ -33,14 +33,21 @@
                         <td>{{ $videogame->genres->first() ? $videogame->genres->first()->name : 'N/A' }}</td>
                         <td>{{ substr($videogame->cover, 0, 30) . '...' }}</td>
                         <td>{{ substr($videogame->description, 0, 30) . '...' }}</td>
-                        <td>{{ $videogame->publisher }}</td>
+
+                        @if ($videogame->publisher)
+                            <td>{{ $videogame->publisher->name }}</td>
+                        @else
+                            <td>-</td>
+                        @endif
+
                         <td>{{ $videogame->serial_number }}</td>
                         <td>{{ $videogame->rating }}</td>
                         <td>
                             <div class="d-flex">
                                 <a href="{{ route('admin.videogames.show', $videogame->id) }}"
                                     class="btn btn-primary me-2">Show</a>
-                                <a href="#" class="btn btn-warning me-2">Edit</a>
+                                <a href="{{ route('admin.videogames.edit', $videogame->id) }}"
+                                    class="btn btn-warning me-2">Edit</a>
                                 <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
                                     data-id="{{ $videogame->id }}">Delete</button>
                             </div>
