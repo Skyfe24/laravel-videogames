@@ -9,8 +9,8 @@ class Developer extends Model
 {
     use HasFactory;
 
-    public function developers()
+    public function videogames()
     {
-        return $this->hasMany(Developer::class);
+        return $this->belongsToMany(Videogame::class);
     }
 }
