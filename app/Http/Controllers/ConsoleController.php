@@ -12,7 +12,9 @@ class ConsoleController extends Controller
      */
     public function index()
     {
-        //
+        $consoles = Console::all();
+
+        return view('admin.consoles.index', compact('consoles'));
     }
 
     /**
@@ -20,7 +22,7 @@ class ConsoleController extends Controller
      */
     public function create()
     {
-        //
+        return to_route('admin.consoles.create');
     }
 
     /**
@@ -28,7 +30,13 @@ class ConsoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $console = new console();
+
+        $console->fill($data);
+
+        return to_route('admin.consoles.show', compact('console'));
     }
 
     /**
@@ -36,7 +44,7 @@ class ConsoleController extends Controller
      */
     public function show(Console $console)
     {
-        //
+        return view('admin.consoles.show', compact('console'));
     }
 
     /**
@@ -44,7 +52,7 @@ class ConsoleController extends Controller
      */
     public function edit(Console $console)
     {
-        //
+        return view('admin.consoles.edit', compact('console'));
     }
 
     /**
@@ -52,7 +60,10 @@ class ConsoleController extends Controller
      */
     public function update(Request $request, Console $console)
     {
-        //
+        $data = $request->all();
+        $console->update($data);
+
+        return to_route('admin.consoles.show', $console)->with('alert-type', 'success');
     }
 
     /**
