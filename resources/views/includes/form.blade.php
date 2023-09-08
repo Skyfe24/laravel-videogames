@@ -35,14 +35,12 @@
     <div class="mb-3 col-4">
         <label for="genre" class="form-label">Select Genre</label>
         <select class="form-control" name="genre" id="genre" value="{{ old('genre', $videogame->genre) }}">
-            <option>Action</option>
-            <option>Rpg</option>
-            <option>Sport</option>
-            <option>FPS</option>
-            <option>Adventure</option>
-            <option>MMO</option>
-            <option>Strategy</option>
-            <option>Racing</option>
+            @foreach ($genres as $genre)
+                <option value="{{ $genre->id }}"
+                    {{ in_array($genre->id, old('genres', $videogame->genres->pluck('id')->toArray())) ? 'selected' : '' }}>
+                    {{ $genre->name }}
+                </option>
+            @endforeach
         </select>
     </div>
     <div class="mb-3 col-8">
