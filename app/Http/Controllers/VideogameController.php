@@ -17,7 +17,7 @@ class VideogameController extends Controller
         $genres = Genre::all();
         $videogames = Videogame::all();
         $publishers = Publisher::select('id', 'name', 'country')->get();
-        return view('admin.admin', compact('videogames', 'publishers'));
+        return view('admin.admin', compact('videogames', 'publishers', 'genres'));
     }
 
     /**
