@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Console extends Model
 {
     use HasFactory;
+    protected $fillable = ['producer', 'name', 'release_date', 'generation', 'OS'];
 
     public function videogames()
     {

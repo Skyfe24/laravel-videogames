@@ -7,42 +7,37 @@
             <h2 class="fs-4 text-secondary my-4">
                 {{ __('Dashboard') }}
             </h2>
-            <a href="{{ route('admin.videogames.create') }}" class="btn btn-success me-2">Create a new console</a>
+            <a href="{{ route('admin.consoles.create') }}" class="btn btn-success me-2">Create a new console</a>
         </div>
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">id</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Release Date</th>
-                    <th scope="col">Genre</th>
-                    <th scope="col">Cover</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Publisher</th>
-                    <th scope="col">Serial Number</th>
-                    <th scope="col">Rating</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Producer</th>
+                    <th scope="col">Release</th>
+                    <th scope="col">Generation</th>
+                    <th scope="col">OS</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($videogames as $videogame)
+                @foreach ($consoles as $console)
                     <tr>
-                        <th>{{ $videogame->id }}</th>
-                        <td>{{ $videogame->title }}</td>
-                        <td>{{ $videogame->release_date }}</td>
-                        <td>{{ $videogame->genres->first() ? $videogame->genres->first()->name : 'N/A' }}</td>
-                        <td>{{ substr($videogame->cover, 0, 30) . '...' }}</td>
-                        <td>{{ substr($videogame->description, 0, 30) . '...' }}</td>
-                        <td>{{ $videogame->publisher }}</td>
-                        <td>{{ $videogame->serial_number }}</td>
-                        <td>{{ $videogame->rating }}</td>
+                        <th>{{ $console->id }}</th>
+                        <td>{{ $console->name }}</td>
+                        <td>{{ $console->release_date }}</td>
+                        <td>{{ $console->producer }}</td>
+                        <td>{{ $console->generation }}</td>
+                        <td>{{ $console->OS }}</td>
                         <td>
-                            <div class="d-flex">
-                                <a href="{{ route('admin.videogames.show', $videogame->id) }}"
+                            <div class="d-flex justify-content-end">
+                                <a href="{{ route('admin.consoles.show', $console->id) }}"
                                     class="btn btn-primary me-2">Show</a>
-                                <a href="#" class="btn btn-warning me-2">Edit</a>
+                                <a href="{{ route('admin.consoles.edit', $console->id) }}"
+                                    class="btn btn-warning me-2">Edit</a>
                                 <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
-                                    data-id="{{ $videogame->id }}">Delete</button>
+                                    data-route="consoles" data-id="{{ $console->id }}">Delete</button>
                             </div>
                         </td>
                     </tr>
