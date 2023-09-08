@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Publisher;
 use Illuminate\Http\Request;
 
@@ -12,8 +13,7 @@ class PublisherController extends Controller
      */
     public function index()
     {
-        $publishers = Publisher::all();
-        return view('admin.publishers.index', compact('publishers'));
+        //
     }
 
     /**
@@ -21,9 +21,7 @@ class PublisherController extends Controller
      */
     public function create()
     {
-        $publisher = new Publisher();
-
-        return view('admin.create', compact('publisher'));
+        //
     }
 
     /**
@@ -31,11 +29,7 @@ class PublisherController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $new_publisher = new publisher();
-        $new_publisher->fill($data);
-        $new_publisher->save();
-        return to_route('admin.publishers.index');
+        //
     }
 
     /**
@@ -43,7 +37,7 @@ class PublisherController extends Controller
      */
     public function show(Publisher $publisher)
     {
-        return view('admin.publisher.show', compact('publisher'));
+        //
     }
 
     /**
@@ -51,7 +45,7 @@ class PublisherController extends Controller
      */
     public function edit(Publisher $publisher)
     {
-        return view('admin.publisher.edit', compact('publisher'));
+        //
     }
 
     /**
@@ -59,11 +53,7 @@ class PublisherController extends Controller
      */
     public function update(Request $request, Publisher $publisher)
     {
-        $data = $request->all();
-
-        $publisher->update($data);
-
-        return to_route('admin.publisher.show', $publisher->id);
+        //
     }
 
     /**
@@ -71,7 +61,6 @@ class PublisherController extends Controller
      */
     public function destroy(Publisher $publisher)
     {
-        $publisher->delete();
-        return to_route('admin.publisher.index');
+        //
     }
 }

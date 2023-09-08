@@ -40,7 +40,8 @@
                             <div class="d-flex">
                                 <a href="{{ route('admin.videogames.show', $videogame->id) }}"
                                     class="btn btn-primary me-2">Show</a>
-                                <a href="#" class="btn btn-warning me-2">Edit</a>
+                                <a href="{{ route('admin.videogames.edit', $videogame->id) }}"
+                                    class="btn btn-warning me-2">Edit</a>
                                 <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
                                     data-id="{{ $videogame->id }}">Delete</button>
                             </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Publisher;
 use App\Models\Videogame;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -23,8 +24,9 @@ class VideogameController extends Controller
     public function create()
     {
         $videogame = new Videogame();
+        $publisher = Publisher::select('id', 'name', 'country')->get();
 
-        return view('admin.create', compact('videogame'));
+        return view('admin.create', compact('videogame', 'publisher'));
     }
 
     /**
@@ -88,7 +90,8 @@ class VideogameController extends Controller
      */
     public function edit(Videogame $videogame)
     {
-        return view('admin.edit', compact('videogame'));
+        $publishers = Publisher::select('id', 'name', 'country')->get();
+        return view('admin..edit', compact('videogame', 'publishers'));
     }
 
     /**
