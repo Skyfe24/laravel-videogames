@@ -14,17 +14,16 @@ class VideogameSeeder extends Seeder
      */
     public function run(Generator $faker): void
     {
-        for ($i = 0; $i < 31; $i++) {
+        $videogames_list = config('videogames_list');
+        for ($i = 0; $i < count($videogames_list); $i++) {
 
             $new_videogame = new Videogame();
-            $new_videogame->title = $faker->words(3, true);
-            $new_videogame->release_date = $faker->dateTime();
-            $new_videogame->genre = $faker->word();
+            $new_videogame->title = $videogames_list[$i]['title'];
+            $new_videogame->release_date = $videogames_list[$i]['release_date'];
             $new_videogame->cover = $faker->imageUrl(640, 480, 'animals', true);
             $new_videogame->description = $faker->paragraph();
             $new_videogame->serial_number = $faker->isbn13();
             $new_videogame->rating = $faker->numberBetween(1, 5);
-            $new_videogame->publisher = $faker->company();
             $new_videogame->save();
         }
     }
