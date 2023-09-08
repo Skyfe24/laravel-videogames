@@ -88,7 +88,7 @@ class VideogameController extends Controller
 
     {
         $publishers = Publisher::select('id', 'name', 'country')->get();
-        return view('admin.show', compact('videogame', 'publisher'));
+        return view('admin.show', compact('videogame', 'publishers'));
     }
 
     /**
@@ -97,7 +97,7 @@ class VideogameController extends Controller
     public function edit(Videogame $videogame)
     {
         $publishers = Publisher::select('id', 'name', 'country')->get();
-        return view('admin..edit', compact('videogame', 'publishers'));
+        return view('admin.edit', compact('videogame', 'publishers'));
     }
 
     /**
