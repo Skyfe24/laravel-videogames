@@ -19,8 +19,8 @@
                     <th scope="col">Cover</th>
                     <th scope="col">Description</th>
                     <th scope="col">Publisher</th>
-                    <th scope="col">Rating</th>
                     <th scope="col">Serial Number</th>
+                    <th scope="col">Rating</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -41,7 +41,8 @@
                                 <a href="{{ route('admin.videogames.show', $videogame->id) }}"
                                     class="btn btn-primary me-2">Show</a>
                                 <a href="#" class="btn btn-warning me-2">Edit</a>
-                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="{{ $videogame->id }}">Delete</button>
+                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                    data-id="{{ $videogame->id }}">Delete</button>
                             </div>
                         </td>
                     </tr>

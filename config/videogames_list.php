@@ -1,0 +1,22 @@
+<?php
+return [
+    ['title' => 'Grand Theft Auto V', 'release_date' => '2013'],
+    ['title' => 'Minecraft', 'release_date' => '2011'],
+    ['title' => 'The Legend of Zelda: Breath of the Wild', 'release_date' => '2017'],
+    ['title' => 'Red Dead Redemption 2', 'release_date' => '2018'],
+    ['title' => 'God of War', 'release_date' => '2018'],
+    ['title' => 'The Last of Us', 'release_date' => '2013'],
+    ['title' => 'The Elder Scrolls V: Skyrim', 'release_date' => '2011'],
+    ['title' => 'Resident Evil 4', 'release_date' => '2005'],
+    ['title' => 'Final Fantasy VII', 'release_date' => '1997'],
+    ['title' => 'Half-Life 2', 'release_date' => '2004'],
+    ['title' => 'World of Warcraft', 'release_date' => '2004'],
+    ['title' => 'Bloodborne', 'release_date' => '2015'],
+    ['title' => 'Dark Souls', 'release_date' => '2011'],
+    ['title' => 'Super Mario Odyssey', 'release_date' => '2017'],
+    ['title' => 'Shadow of the Colossus', 'release_date' => '2005'],
+    ['title' => 'Rocket League', 'release_date' => '2015'],
+    ['title' => 'Dota 2', 'release_date' => '2013'],
+    ['title' => 'Call of Duty 4: Modern Warfare', 'release_date' => '2007'],
+    ['title' => 'Guitar Hero', 'release_date' => '2005'],
+];

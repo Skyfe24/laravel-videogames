@@ -14,11 +14,9 @@ return new class extends Migration
         Schema::create('videogames', function (Blueprint $table) {
             $table->id();
             $table->string('title')->unique();
-            $table->date('release_date')->nullable();
-            $table->string('genre');
+            $table->year('release_date')->nullable();
             $table->string('cover', 500)->unique()->nullable();
             $table->text('description')->nullable();
-            $table->string('publisher');
             $table->string('serial_number')->unique();
             $table->string('rating')->nullable();
             $table->timestamps();
